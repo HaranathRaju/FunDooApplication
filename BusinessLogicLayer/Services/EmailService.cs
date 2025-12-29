@@ -37,7 +37,7 @@ namespace BusinessLogicLayer.Services
 
             mail.To.Add(request.ToEmail);
 
-        
+
             SmtpClient client = new SmtpClient(smtp["Server"])
             {
                 Port = int.Parse(smtp["Port"]),

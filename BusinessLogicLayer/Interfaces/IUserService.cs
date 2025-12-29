@@ -16,5 +16,9 @@ namespace BusinessLogicLayer.Interfaces
 
         UserResponse  Login(LoginModel model);
 
+        string ForgetPassword(string email);
+
+        bool ResetPassword(string email, string newpassword,string confirmpassword);
+
     }
 }

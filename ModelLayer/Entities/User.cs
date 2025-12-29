@@ -14,8 +14,8 @@ namespace ModelLayer.Entities
         public Guid UserId { get; set; }
 
 
-        [Required(ErrorMessage ="First Name cannot be null")]
-        [MaxLength(100,ErrorMessage ="length of the characters cannot exceed 100")]
+        [Required(ErrorMessage = "First Name cannot be null")]
+        [MaxLength(100, ErrorMessage = "length of the characters cannot exceed 100")]
         public string FirstName { get; set; }
 
 
@@ -24,9 +24,9 @@ namespace ModelLayer.Entities
         public string LastName { get; set; }
 
 
-       
-        [Required(ErrorMessage ="email cannot be null")]
-        [EmailAddress(ErrorMessage ="Email should be in valid form")]
+
+        [Required(ErrorMessage = "email cannot be null")]
+        [EmailAddress(ErrorMessage = "Email should be in valid form")]
         [MaxLength(255, ErrorMessage = "length of the characters cannot exceed 255")]
         public string Email { get; set; }
         [Required(ErrorMessage = "email cannot be null")]
@@ -38,6 +38,8 @@ namespace ModelLayer.Entities
         public DateTime ChangedAt { get; set; } = DateTime.UtcNow;
 
         public ICollection<Notes> Notes { get; set; }
+
+        public ICollection<Collaborator> Collaborators {get; set;}
 
     }
 }

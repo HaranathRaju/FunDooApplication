@@ -31,7 +31,7 @@ namespace BusinessLogicLayer.Services
             var note = _mapper.Map<Notes>(dto);
             note.Id = Guid.NewGuid();
             note.UserId = userId;
-            note.CreatedAt = DateTime.Now;
+            note.CreatedAt = DateTime.UtcNow;
 
             var savedNote = _notesRepository.AddNote(note);
 

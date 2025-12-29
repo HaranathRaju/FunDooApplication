@@ -9,7 +9,7 @@ namespace BusinessLogicLayer.Interfaces
 {
     public interface IEmailService
     {
-
+    
         void SendEmail(EmailRequest request);
     }
 }

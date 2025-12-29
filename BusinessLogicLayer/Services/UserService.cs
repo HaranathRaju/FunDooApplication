@@ -56,8 +56,16 @@ namespace BusinessLogicLayer.Services
 
         public UserResponse Register(RegisterModel model)
         {
-         
+
+            var existingUser = iuserrepository.GetUserByEmail(model.Email);
+
+            if (existingUser != null)
+            {
+                throw new Exception("Email already exists");
+            }
+
             var user = new User();
+            
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.Email = model.Email;
@@ -100,6 +108,41 @@ namespace BusinessLogicLayer.Services
             response.Token = token;
 
             return response;
+
+        }
+
+        public string ForgetPassword(string email)
+        {
+            var user=iuserrepository.GetUserByEmail(email);
+
+            if (user == null)
+            {
+                throw new Exception("email incorrect");
+            }
+         
+
+            var token = GenerateToken(user);
+
+            return token;
+
+        }
+
+        public bool ResetPassword(string email,string newpassword,string confirmpassword)
+        {
+
+            var user= iuserrepository.GetUserByEmail(email); 
+            
+            if (newpassword!=confirmpassword)
+            {
+                throw new Exception("password should match");
+
+            }
+            string hashpassword = BCrypt.Net.BCrypt.HashPassword(newpassword);
+            user.Password = hashpassword;
+
+            iuserrepository.UpdatePassword(email, hashpassword);
+
+            return true;
 
         }
     }

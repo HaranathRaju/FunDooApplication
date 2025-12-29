@@ -11,5 +11,7 @@ namespace DataLogicLayer.Interfaces
     {
         User AddUser(User user);
         User GetUserByEmail(string email);
+
+        User UpdatePassword(string email, string newpassword);
     }
 }

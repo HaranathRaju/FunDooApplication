@@ -70,6 +70,13 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<INotesRepository, NotesRepsoitory>();
 builder.Services.AddScoped<INotesService, NotesService>();
 
+builder.Services.AddScoped<ILabelRepository, LabelRepository>();
+builder.Services.AddScoped<ILabelService, LabelService>();
+
+builder.Services.AddScoped<ICollaboratorRepository, CollaboratorRepository>();
+builder.Services.AddScoped<ICollaboratorService, CollaboratorService>();
+
+
 //smtp
 builder.Services.AddScoped<IEmailService, EmailService>();  
 

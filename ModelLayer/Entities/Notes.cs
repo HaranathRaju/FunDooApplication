@@ -41,5 +41,7 @@ namespace ModelLayer.Entities
 
         public User? User { get; set; }
 
+        public ICollection<Collaborator> Collaborators { get; set; } 
+        public ICollection<NoteLabel> NoteLabels { get; set; } 
     }
 }

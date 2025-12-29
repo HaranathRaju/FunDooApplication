@@ -36,11 +36,26 @@ namespace DataLogicLayer.Repositories
         {
             User user= context.Users.FirstOrDefault(x => x.Email == email);
             if (user == null)
-
+            {
                 return null;
-
+            }
             return user;
         }
+
+        public User UpdatePassword(string email,string newpassword)
+        {
+            var user=context.Users.Where(l => l.Email==email).FirstOrDefault();
+
+            if (user == null)
+                throw new Exception("email is incorrect");
+
+            user.Password = newpassword;
+            context.SaveChanges();
+
+            return user;
+
+
+        } 
        
     }
 }

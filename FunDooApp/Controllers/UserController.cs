@@ -14,6 +14,7 @@ namespace FunDooApp.Controllers
     {
         private readonly IUserService iuserservice;
         private readonly IEmailService emailservice;
+        
 
         public UserController(IUserService iuserservice , IEmailService emailservice)
         {
@@ -49,6 +50,32 @@ namespace FunDooApp.Controllers
             {
                 return BadRequest(ex.Message);
             }
+
+        }
+
+        [HttpPost]
+        [Route("ForgetPassword")]
+
+        public IActionResult ForgetPassword([FromQuery] string email)
+        {
+            var token = iuserservice.ForgetPassword(email);
+
+
+            EmailRequest request = new EmailRequest(email, "use this token to generate new password", token.ToString());
+
+            emailservice.SendEmail(request);
+
+            return Ok("token sent to email");
+        }
+
+        [HttpPost]
+        [Route("ResetPassword")]
+        [Authorize] 
+        public  IActionResult ResetPassword(string email,string newpassword,string confirmpassword)
+        {
+            iuserservice.ResetPassword(email, newpassword,confirmpassword);
+
+            return Ok("password changed successfully");
 
         }
         
