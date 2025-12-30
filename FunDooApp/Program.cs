@@ -7,9 +7,30 @@ using DataLogicLayer.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NLog.Web;
+using Serilog;
 using System.Text;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+//
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File(
+        path: "Logs/fundoo-log-.txt",
+        rollingInterval: RollingInterval.Day
+    )
+    .CreateLogger();
+
+builder.Host.UseSerilog(); 
+
+//Logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();  
+builder.Logging.AddDebug();
 
 // Add services to the container.
 

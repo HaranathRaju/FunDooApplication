@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer.DTO;
 using System.Security.Claims;
+using Microsoft.Extensions.Logging;
+
 
 namespace FunDooApp.Controllers
 {
@@ -13,10 +15,12 @@ namespace FunDooApp.Controllers
     public class NotesController : ControllerBase
     {
         private readonly INotesService notesService;
+        private readonly ILogger<NotesController> ilogger;
 
-        public NotesController(INotesService notesService)
+        public NotesController(INotesService notesService, ILogger<NotesController> ilogger)
         {
             this.notesService = notesService;
+            this.ilogger = ilogger; 
         }
         private Guid GetUserId()
         {
@@ -32,13 +36,24 @@ namespace FunDooApp.Controllers
             return Ok(response);
         }
 
-
         [HttpGet]
         public IActionResult GetAllNotes()
         {
-            var userId = GetUserId();
-            var notes = notesService.GetNotesByUserId(userId);
-            return Ok(notes);
+            ilogger.LogInformation("GetAllNotes API called");
+
+            try
+            {
+                var userId = GetUserId();
+                var notes = notesService.GetNotesByUserId(userId);
+
+                ilogger.LogInformation("Fetched notes for UserId: {UserId}", userId);
+                return Ok(notes);
+            }
+            catch (Exception ex)
+            {
+                ilogger.LogError(ex, "Error while fetching notes");
+                return StatusCode(500, "Internal Server Error");
+            }
         }
 
 
