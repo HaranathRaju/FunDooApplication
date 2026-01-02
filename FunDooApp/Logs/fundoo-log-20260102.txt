@@ -1,0 +1,375 @@
+2026-01-02 16:02:05.773 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:02:06.512 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:02:06.514 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:02:06.683 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:02:06.686 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:02:06.688 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:02:07.943 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-02 16:02:08.284 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 357.971ms
+2026-01-02 16:02:08.535 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-02 16:02:08.535 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-02 16:02:08.560 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 25.402ms
+2026-01-02 16:02:08.653 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 118.3207ms
+2026-01-02 16:02:08.762 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-02 16:02:08.789 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.1218ms
+2026-01-02 16:03:50.049 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 117
+2026-01-02 16:03:50.304 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-02 16:03:50.364 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-02 16:03:50.810 +05:30 [INF] Register request started for Email: gaurav134mishra@gmail.com
+2026-01-02 16:03:51.139 +05:30 [INF] Register process started for Email: gaurav134mishra@gmail.com
+2026-01-02 16:03:53.050 +05:30 [INF] Executed DbCommand (148ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-02 16:03:53.366 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__user_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE @__user_Email_0 = [u].[Email]
+2026-01-02 16:03:53.557 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 255), @p4='?' (Size = 100), @p5='?' (Size = 100), @p6='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([UserId], [ChangedAt], [CreatedAt], [Email], [FirstName], [LastName], [Password])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-01-02 16:03:53.603 +05:30 [INF] User registered successfully for Email: gaurav134mishra@gmail.com
+2026-01-02 16:03:53.605 +05:30 [INF] User registered successfully with Email: gaurav134mishra@gmail.com
+2026-01-02 16:03:53.615 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.UserResponse'.
+2026-01-02 16:03:53.628 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Register (FunDooApp) in 3255.6502ms
+2026-01-02 16:03:53.630 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-02 16:03:53.643 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Register - 200 null application/json; charset=utf-8 3604.7663ms
+2026-01-02 16:06:18.195 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:06:18.677 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:06:18.703 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:06:18.704 +05:30 [INF] Application is shutting down...
+2026-01-02 16:06:18.748 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:06:18.750 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:06:18.787 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:06:18.790 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:06:18.791 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:06:31.261 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:06:31.578 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:06:31.597 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:06:31.599 +05:30 [INF] Application is shutting down...
+2026-01-02 16:06:31.638 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:06:31.640 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:06:31.673 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:06:31.675 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:06:31.677 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:06:48.453 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:06:48.593 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:06:48.603 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:06:48.606 +05:30 [INF] Application is shutting down...
+2026-01-02 16:06:48.628 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:06:48.629 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:06:48.650 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:06:48.651 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:06:48.652 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:07:18.658 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:07:19.042 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:19.061 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:19.063 +05:30 [INF] Application is shutting down...
+2026-01-02 16:07:19.100 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:07:19.102 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:07:19.125 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:07:19.126 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:07:19.128 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:07:24.351 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:07:24.624 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:24.644 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:24.647 +05:30 [INF] Application is shutting down...
+2026-01-02 16:07:24.681 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:07:24.683 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:07:24.704 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:07:24.706 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:07:24.707 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:07:35.365 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:07:35.647 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:35.664 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:35.666 +05:30 [INF] Application is shutting down...
+2026-01-02 16:07:35.703 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:07:35.705 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:07:35.726 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:07:35.728 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:07:35.729 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:07:40.490 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:07:40.745 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:40.763 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:07:40.766 +05:30 [INF] Application is shutting down...
+2026-01-02 16:07:40.800 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:07:40.803 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:07:40.826 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:07:40.827 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:07:40.829 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:08:03.349 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:08:05.553 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:08:05.572 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:08:05.574 +05:30 [INF] Application is shutting down...
+2026-01-02 16:08:05.611 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:08:05.613 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:08:05.637 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:08:05.638 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:08:05.639 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:08:57.982 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:08:58.396 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:08:58.427 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:08:58.430 +05:30 [INF] Application is shutting down...
+2026-01-02 16:08:58.494 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:08:58.497 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:08:58.541 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:08:58.542 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:08:58.544 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:11:06.025 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:11:06.719 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:11:06.763 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:11:06.767 +05:30 [INF] Application is shutting down...
+2026-01-02 16:11:06.860 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:11:06.862 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:11:06.911 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:11:06.912 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:11:06.913 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:11:20.557 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:11:20.871 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:11:20.890 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:11:20.894 +05:30 [INF] Application is shutting down...
+2026-01-02 16:11:20.932 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:11:20.934 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:11:20.961 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:11:20.963 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:11:20.964 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:11:38.521 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:11:38.834 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:11:38.856 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:11:38.859 +05:30 [INF] Application is shutting down...
+2026-01-02 16:11:38.906 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:11:38.909 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:11:38.947 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:11:38.949 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:11:38.950 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:12:03.167 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:12:03.529 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:12:03.546 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=404, text='NOT_FOUND - no queue 'emailqueue' in vhost '/'', classId=60, methodId=20
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.BasicConsume(String queue, Boolean autoAck, String consumerTag, Boolean noLocal, Boolean exclusive, IDictionary`2 arguments, IBasicConsumer consumer)
+   at RabbitMQ.Client.IModelExensions.BasicConsume(IModel model, String queue, Boolean autoAck, IBasicConsumer consumer)
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 45
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-02 16:12:03.551 +05:30 [INF] Application is shutting down...
+2026-01-02 16:12:03.595 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:12:03.597 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:12:03.621 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:12:03.622 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:12:03.624 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:31:31.409 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-02 16:31:31.668 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-02 16:31:31.671 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-02 16:31:31.763 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-02 16:31:31.766 +05:30 [INF] Hosting environment: Development
+2026-01-02 16:31:31.768 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-02 16:31:32.055 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-02 16:31:32.268 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 214.791ms
+2026-01-02 16:31:32.319 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-02 16:31:32.332 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 12.9626ms
+2026-01-02 16:31:32.334 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-02 16:31:32.447 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 112.5368ms
+2026-01-02 16:31:32.506 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-02 16:31:32.520 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.4163ms
+2026-01-02 16:32:20.293 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 112
+2026-01-02 16:32:20.367 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-02 16:32:20.387 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-02 16:32:20.554 +05:30 [INF] Register request started for Email: prasannagoto@gmail.com
+2026-01-02 16:32:20.652 +05:30 [INF] Register process started for Email: prasannagoto@gmail.com
+2026-01-02 16:32:21.822 +05:30 [INF] Executed DbCommand (69ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-02 16:32:22.107 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__user_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE @__user_Email_0 = [u].[Email]
+2026-01-02 16:32:22.264 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 255), @p4='?' (Size = 100), @p5='?' (Size = 100), @p6='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([UserId], [ChangedAt], [CreatedAt], [Email], [FirstName], [LastName], [Password])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-01-02 16:32:22.284 +05:30 [INF] User registered successfully for Email: prasannagoto@gmail.com
+2026-01-02 16:32:22.286 +05:30 [INF] User registered successfully with Email: prasannagoto@gmail.com
+2026-01-02 16:32:22.293 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.UserResponse'.
+2026-01-02 16:32:22.302 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Register (FunDooApp) in 1908.218ms
+2026-01-02 16:32:22.303 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-02 16:32:22.315 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Register - 200 null application/json; charset=utf-8 2021.9084ms

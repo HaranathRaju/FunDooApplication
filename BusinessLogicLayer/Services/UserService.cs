@@ -18,15 +18,18 @@ namespace BusinessLogicLayer.Services
         private readonly IUserRepository iuserrepository;
         private readonly IConfiguration configuration;
         private readonly ILogger<UserService> logger;
+        private readonly IRabbitMQProducer rabbitMQProducer;
 
         public UserService(
             IUserRepository iuserrepository,
             IConfiguration configuration,
-            ILogger<UserService> logger)
+            ILogger<UserService> logger,
+            IRabbitMQProducer rabbitMQProducer)
         {
             this.iuserrepository = iuserrepository;
             this.configuration = configuration;
             this.logger = logger;
+            this.rabbitMQProducer= rabbitMQProducer;    
         }
 
         private string GenerateToken(User user)
@@ -80,6 +83,16 @@ namespace BusinessLogicLayer.Services
             };
 
             iuserrepository.AddUser(user);
+
+            EmailRequest email = new EmailRequest(
+                  user.Email,
+                  "Welcome to Fundoo",
+                  $"Hi {user.FirstName}, your registration was successful!"
+            );
+
+            rabbitMQProducer.SendEmailMessage(email);
+
+
 
             logger.LogInformation("User registered successfully for Email: {Email}", model.Email);
 

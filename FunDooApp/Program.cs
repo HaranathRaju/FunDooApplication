@@ -14,7 +14,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//
+//Logging
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .MinimumLevel.Information()
@@ -136,6 +136,13 @@ builder.Services.AddStackExchangeRedisCache(options =>
 //Mapping
 
 builder.Services.AddAutoMapper(typeof(NotesMapper));
+
+//Rabbitmq
+builder.Services.AddScoped<IRabbitMQProducer, RabbitMQProducer>();
+
+builder.Services.AddHostedService<RabbitMQConsumer>();
+
+
 
 
 

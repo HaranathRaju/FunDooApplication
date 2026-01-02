@@ -34,10 +34,6 @@ namespace FunDooApp.Controllers
 
             var response = iuserservice.Register(model);
 
-            EmailRequest request = new EmailRequest(model.Email, "Welcome to Fundoo Application", "Successfully registered to Fundoo Application");
-
-            emailservice.SendEmail(request);
-
             logger.LogInformation("User registered successfully with Email: {Email}", model.Email);
 
             return Ok(response);
