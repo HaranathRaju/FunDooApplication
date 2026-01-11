@@ -1,0 +1,65 @@
+2026-01-11 22:10:07.647 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-11 22:10:08.332 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-11 22:10:08.335 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-11 22:10:08.499 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-11 22:10:08.502 +05:30 [INF] Hosting environment: Development
+2026-01-11 22:10:08.504 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-11 22:10:11.036 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-11 22:10:11.309 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 281.5363ms
+2026-01-11 22:10:11.343 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-11 22:10:11.350 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-11 22:10:11.369 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 25.971ms
+2026-01-11 22:10:11.511 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 161.334ms
+2026-01-11 22:10:11.578 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-11 22:10:11.600 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.5743ms
+2026-01-11 22:14:00.658 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Login - application/json 57
+2026-01-11 22:14:00.830 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-11 22:14:00.886 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-11 22:14:01.272 +05:30 [INF] Login attempt for Email: user@example.com
+2026-01-11 22:14:01.370 +05:30 [INF] Login attempt started for Email: user@example.com
+2026-01-11 22:14:02.870 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-11 22:14:03.252 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-11 22:14:03.255 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-11 22:14:03.263 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.UserResponse'.
+2026-01-11 22:14:03.272 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Login (FunDooApp) in 2378.6673ms
+2026-01-11 22:14:03.274 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-11 22:14:03.283 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Login - 200 null application/json; charset=utf-8 2628.6157ms
+2026-01-11 22:14:28.760 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/Notes - application/json 129
+2026-01-11 22:14:28.827 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-11 22:14:28.831 +05:30 [INF] Route matched with {action = "AddNote", controller = "Notes"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddNote(ModelLayer.DTO.NoteRequest) on controller FunDooApp.Controllers.NotesController (FunDooApp).
+2026-01-11 22:14:29.095 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 7), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime2), @p9='?' (Size = 255), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Id], [Colour], [CreatedAt], [Description], [Image], [IsArchive], [IsPin], [IsTrash], [Reminder], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-01-11 22:14:29.444 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.NoteResponse'.
+2026-01-11 22:14:29.463 +05:30 [INF] Executed action FunDooApp.Controllers.NotesController.AddNote (FunDooApp) in 629.6493ms
+2026-01-11 22:14:29.466 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-11 22:14:29.467 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/Notes - 200 null application/json; charset=utf-8 708.2739ms
+2026-01-11 22:14:47.758 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/Notes - application/json 132
+2026-01-11 22:14:47.768 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-11 22:14:47.770 +05:30 [INF] Route matched with {action = "AddNote", controller = "Notes"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddNote(ModelLayer.DTO.NoteRequest) on controller FunDooApp.Controllers.NotesController (FunDooApp).
+2026-01-11 22:14:47.823 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 7), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime2), @p9='?' (Size = 255), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Id], [Colour], [CreatedAt], [Description], [Image], [IsArchive], [IsPin], [IsTrash], [Reminder], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-01-11 22:14:47.828 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.NoteResponse'.
+2026-01-11 22:14:47.829 +05:30 [INF] Executed action FunDooApp.Controllers.NotesController.AddNote (FunDooApp) in 56.087ms
+2026-01-11 22:14:47.830 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-11 22:14:47.831 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/Notes - 200 null application/json; charset=utf-8 72.8033ms
+2026-01-11 22:14:49.906 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/Notes - application/json 132
+2026-01-11 22:14:49.910 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-11 22:14:49.911 +05:30 [INF] Route matched with {action = "AddNote", controller = "Notes"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddNote(ModelLayer.DTO.NoteRequest) on controller FunDooApp.Controllers.NotesController (FunDooApp).
+2026-01-11 22:14:49.923 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 7), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime2), @p9='?' (Size = 255), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Id], [Colour], [CreatedAt], [Description], [Image], [IsArchive], [IsPin], [IsTrash], [Reminder], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-01-11 22:14:49.926 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.NoteResponse'.
+2026-01-11 22:14:49.927 +05:30 [INF] Executed action FunDooApp.Controllers.NotesController.AddNote (FunDooApp) in 14.132ms
+2026-01-11 22:14:49.928 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-11 22:14:49.929 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/Notes - 200 null application/json; charset=utf-8 23.0008ms

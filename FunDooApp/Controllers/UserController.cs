@@ -13,16 +13,13 @@ namespace FunDooApp.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService iuserservice;
-        private readonly IEmailService emailservice;
         private readonly ILogger<UserController> logger;
 
         public UserController(
             IUserService iuserservice,
-            IEmailService emailservice,
             ILogger<UserController> logger)
         {
             this.iuserservice = iuserservice;
-            this.emailservice = emailservice;
             this.logger = logger;
         }
 
@@ -32,11 +29,22 @@ namespace FunDooApp.Controllers
         {
             logger.LogInformation("Register request started for Email: {Email}", model.Email);
 
-            var response = iuserservice.Register(model);
+            try
+            {
+                var response = iuserservice.Register(model);
 
-            logger.LogInformation("User registered successfully with Email: {Email}", model.Email);
+                logger.LogInformation("User registered successfully with Email: {Email}", model.Email);
 
-            return Ok(response);
+                return Ok(response);
+
+            }
+            catch(Exception ex)
+            {
+                logger.LogError(ex, "Registration failed ");
+                return BadRequest(ex.Message);
+           
+            }
+
         }
 
         [HttpPost]
@@ -67,10 +75,6 @@ namespace FunDooApp.Controllers
             logger.LogInformation("ForgetPassword request received for Email: {Email}", email);
 
             var token = iuserservice.ForgetPassword(email);
-
-            EmailRequest request = new EmailRequest(email,"Use this token to generate new password",token.ToString());
-
-            emailservice.SendEmail(request);
 
             logger.LogInformation("Password reset token sent to Email: {Email}", email);
 

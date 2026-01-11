@@ -62,3 +62,4 @@ public class RabbitMQConsumer : BackgroundService
         await Task.Delay(Timeout.Infinite, stoppingToken);
     }
 }
+                                                   

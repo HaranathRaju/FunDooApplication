@@ -1,0 +1,14 @@
+2026-01-09 16:01:24.980 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-09 16:01:25.594 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-09 16:01:25.596 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-09 16:01:25.708 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-09 16:01:25.710 +05:30 [INF] Hosting environment: Development
+2026-01-09 16:01:25.711 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-09 16:01:27.816 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-09 16:01:28.198 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 397.5277ms
+2026-01-09 16:01:28.295 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-09 16:01:28.303 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-09 16:01:28.318 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 22.7722ms
+2026-01-09 16:01:29.101 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 798.6325ms
+2026-01-09 16:01:29.172 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-09 16:01:29.208 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.6311ms

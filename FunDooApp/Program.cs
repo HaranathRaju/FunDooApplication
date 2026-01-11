@@ -12,6 +12,7 @@ using Serilog;
 using System.Text;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Logging
@@ -23,7 +24,7 @@ Log.Logger = new LoggerConfiguration()
         path: "Logs/fundoo-log-.txt",
         rollingInterval: RollingInterval.Day
     )
-    .CreateLogger();
+    .CreateLogger();        
 
 builder.Host.UseSerilog(); 
 
@@ -138,15 +139,13 @@ builder.Services.AddStackExchangeRedisCache(options =>
 builder.Services.AddAutoMapper(typeof(NotesMapper));
 
 //Rabbitmq
-builder.Services.AddScoped<IRabbitMQProducer, RabbitMQProducer>();
+builder.Services.AddSingleton<IRabbitMQProducer, RabbitMQProducer>();
 
 builder.Services.AddHostedService<RabbitMQConsumer>();
 
 
-
-
-
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

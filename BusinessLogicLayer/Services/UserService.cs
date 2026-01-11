@@ -16,17 +16,21 @@ namespace BusinessLogicLayer.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository iuserrepository;
+        private readonly IEmailService emailservice;
         private readonly IConfiguration configuration;
         private readonly ILogger<UserService> logger;
         private readonly IRabbitMQProducer rabbitMQProducer;
 
         public UserService(
             IUserRepository iuserrepository,
+            IEmailService emailservice, 
             IConfiguration configuration,
             ILogger<UserService> logger,
-            IRabbitMQProducer rabbitMQProducer)
+            IRabbitMQProducer rabbitMQProducer
+            )
         {
             this.iuserrepository = iuserrepository;
+            this.emailservice = emailservice;   
             this.configuration = configuration;
             this.logger = logger;
             this.rabbitMQProducer= rabbitMQProducer;    
@@ -46,6 +50,7 @@ namespace BusinessLogicLayer.Services
                 Encoding.UTF8.GetBytes(configuration["Jwt:Key"])
             );
 
+           
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
@@ -139,6 +144,7 @@ namespace BusinessLogicLayer.Services
         {
             logger.LogInformation("ForgetPassword requested for Email: {Email}", email);
 
+ 
             var user = iuserrepository.GetUserByEmail(email);
             if (user == null)
             {
@@ -148,10 +154,18 @@ namespace BusinessLogicLayer.Services
 
             var token = GenerateToken(user);
 
-            logger.LogInformation("Password reset token generated for Email: {Email}", email);
+            EmailRequest emailRequest = new EmailRequest(
+                user.Email,
+                "Reset your password",
+                $"Use this token to reset your password: {token}"
+            );
 
+            emailservice.SendEmail(emailRequest);
+
+            logger.LogInformation("Password reset token sent to Email: {Email}", email);
             return token;
         }
+
 
         public bool ResetPassword(string email, string newpassword, string confirmpassword)
         {
