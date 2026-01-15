@@ -1,0 +1,240 @@
+2026-01-14 12:24:02.825 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 12:24:03.407 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 12:24:03.409 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 12:24:03.514 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 12:24:03.515 +05:30 [INF] Hosting environment: Development
+2026-01-14 12:24:03.517 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 12:24:07.835 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 12:24:08.095 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 270.6314ms
+2026-01-14 12:24:08.127 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 12:24:08.160 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 32.8642ms
+2026-01-14 12:24:08.192 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 12:24:08.286 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 94.3267ms
+2026-01-14 12:24:08.340 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 12:24:08.360 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.505ms
+2026-01-14 12:25:50.357 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Login - application/json 57
+2026-01-14 12:25:50.474 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-14 12:25:50.507 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 12:25:50.773 +05:30 [INF] Login attempt for Email: user@example.com
+2026-01-14 12:25:50.845 +05:30 [INF] Login attempt started for Email: user@example.com
+2026-01-14 12:25:52.418 +05:30 [INF] Executed DbCommand (89ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 12:25:52.772 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-14 12:25:52.774 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-14 12:25:52.782 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.UserResponse'.
+2026-01-14 12:25:52.794 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Login (FunDooApp) in 2279.879ms
+2026-01-14 12:25:52.795 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-14 12:25:52.805 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Login - 200 null application/json; charset=utf-8 2447.4863ms
+2026-01-14 12:26:25.948 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/Notes - application/json 129
+2026-01-14 12:26:26.016 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-14 12:26:26.022 +05:30 [INF] Route matched with {action = "AddNote", controller = "Notes"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddNote(ModelLayer.DTO.NoteRequest) on controller FunDooApp.Controllers.NotesController (FunDooApp).
+2026-01-14 12:26:26.285 +05:30 [INF] Executed DbCommand (41ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 7), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime2), @p9='?' (Size = 255), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Id], [Colour], [CreatedAt], [Description], [Image], [IsArchive], [IsPin], [IsTrash], [Reminder], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-01-14 12:33:25.316 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 12:33:25.727 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 12:33:25.729 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 12:33:25.818 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 12:33:25.820 +05:30 [INF] Hosting environment: Development
+2026-01-14 12:33:25.821 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 12:33:26.842 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 12:33:27.173 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 348.4914ms
+2026-01-14 12:33:27.205 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 12:33:27.223 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 12:33:27.260 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 55.1063ms
+2026-01-14 12:33:27.308 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 84.6796ms
+2026-01-14 12:33:27.358 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 12:33:27.385 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.7559ms
+2026-01-14 12:33:39.955 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Login - application/json 57
+2026-01-14 12:33:40.051 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-14 12:33:40.081 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 12:33:40.325 +05:30 [INF] Login attempt for Email: user@example.com
+2026-01-14 12:33:40.337 +05:30 [INF] Login attempt started for Email: user@example.com
+2026-01-14 12:33:41.813 +05:30 [INF] Executed DbCommand (108ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 12:33:42.161 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-14 12:33:42.163 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-14 12:33:42.172 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.UserResponse'.
+2026-01-14 12:33:42.181 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Login (FunDooApp) in 2093.4092ms
+2026-01-14 12:33:42.182 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-14 12:33:42.190 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Login - 200 null application/json; charset=utf-8 2235.2519ms
+2026-01-14 12:34:31.525 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/Notes - application/json 190
+2026-01-14 12:34:31.601 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.NotesController.AddNote (FunDooApp)'
+2026-01-14 12:34:31.607 +05:30 [INF] Route matched with {action = "AddNote", controller = "Notes"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddNote(ModelLayer.DTO.NoteRequest) on controller FunDooApp.Controllers.NotesController (FunDooApp).
+2026-01-14 12:34:31.882 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 7), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime2), @p9='?' (Size = 255), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notes] ([Id], [Colour], [CreatedAt], [Description], [Image], [IsArchive], [IsPin], [IsTrash], [Reminder], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-01-14 22:14:14.133 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 22:14:14.744 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 22:14:14.746 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 22:14:14.856 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 22:14:14.857 +05:30 [INF] Hosting environment: Development
+2026-01-14 22:14:14.858 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 22:14:16.991 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 22:14:17.396 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 419.5811ms
+2026-01-14 22:14:17.454 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 22:14:17.474 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 19.1097ms
+2026-01-14 22:14:17.482 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 22:14:17.570 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 88.3959ms
+2026-01-14 22:14:18.366 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 22:14:18.391 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.5637ms
+2026-01-14 22:40:48.698 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 22:40:49.274 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 22:40:49.276 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 22:40:49.372 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 22:40:49.375 +05:30 [INF] Hosting environment: Development
+2026-01-14 22:40:49.377 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 22:40:50.514 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 22:40:50.839 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 360.6978ms
+2026-01-14 22:40:51.106 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 22:40:51.109 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 22:40:51.138 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 32.4263ms
+2026-01-14 22:40:51.410 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 301.032ms
+2026-01-14 22:40:51.524 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 22:40:51.563 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.7861ms
+2026-01-14 22:46:25.139 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 106
+2026-01-14 22:46:25.413 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-14 22:46:25.513 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 22:46:25.952 +05:30 [INF] Register request started for Email: user@example.com
+2026-01-14 22:46:26.109 +05:30 [INF] Register process started for Email: user@example.com
+2026-01-14 22:46:27.738 +05:30 [INF] Executed DbCommand (85ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 22:46:27.815 +05:30 [WRN] Registration failed. Email already exists: user@example.com
+2026-01-14 22:46:28.090 +05:30 [ERR] Registration failed 
+ModelLayer.Exceptions.AppException: Email already exists
+   at BusinessLogicLayer.Services.UserService.Register(RegisterModel model) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\UserService.cs:line 78
+   at FunDooApp.Controllers.UserController.Register(RegisterModel model) in C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp\Controllers\UserController.cs:line 34
+2026-01-14 22:46:28.118 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-01-14 22:46:28.124 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Register (FunDooApp) in 2605.3204ms
+2026-01-14 22:46:28.125 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-14 22:46:28.132 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Register - 400 null text/plain; charset=utf-8 3025.3233ms
+2026-01-14 22:51:43.755 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 22:51:44.353 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 22:51:44.355 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 22:51:44.462 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 22:51:44.464 +05:30 [INF] Hosting environment: Development
+2026-01-14 22:51:44.465 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 22:51:45.308 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 22:51:45.537 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 240.4058ms
+2026-01-14 22:51:45.661 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 22:51:45.669 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 22:51:45.687 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 26.3352ms
+2026-01-14 22:51:45.746 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 77.8608ms
+2026-01-14 22:51:45.903 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 22:51:45.952 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.9994ms
+2026-01-14 22:51:53.837 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 106
+2026-01-14 22:51:53.925 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-14 22:51:53.956 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 22:51:54.226 +05:30 [INF] Register request started for Email: user@example.com
+2026-01-14 22:51:54.237 +05:30 [INF] Register process started for Email: user@example.com
+2026-01-14 22:51:55.879 +05:30 [INF] Executed DbCommand (127ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 22:51:55.951 +05:30 [WRN] Registration failed. Email already exists: user@example.com
+2026-01-14 23:00:20.069 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 23:00:20.657 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 23:00:20.659 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 23:00:20.758 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 23:00:20.760 +05:30 [INF] Hosting environment: Development
+2026-01-14 23:00:20.761 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 23:00:22.047 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 23:00:22.361 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 333.6491ms
+2026-01-14 23:00:22.407 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 23:00:22.413 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 23:00:22.440 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 32.7979ms
+2026-01-14 23:00:22.529 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.568ms
+2026-01-14 23:00:22.581 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 23:00:22.603 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.7147ms
+2026-01-14 23:00:28.353 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 106
+2026-01-14 23:00:28.445 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-14 23:00:28.480 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 23:00:28.756 +05:30 [INF] Register request started for Email: user@example.com
+2026-01-14 23:00:28.768 +05:30 [INF] Register process started for Email: user@example.com
+2026-01-14 23:00:30.382 +05:30 [INF] Executed DbCommand (116ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 23:00:30.456 +05:30 [WRN] Registration failed. Email already exists: user@example.com
+2026-01-14 23:03:56.325 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 23:03:56.790 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 23:03:56.792 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 23:03:56.890 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 23:03:56.891 +05:30 [INF] Hosting environment: Development
+2026-01-14 23:03:56.892 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 23:03:57.745 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 23:03:58.092 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 371.6667ms
+2026-01-14 23:03:58.154 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 23:03:58.156 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 23:03:58.177 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 23.2217ms
+2026-01-14 23:03:58.284 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 129.0619ms
+2026-01-14 23:03:58.411 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 23:03:58.433 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.4964ms
+2026-01-14 23:04:03.886 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 106
+2026-01-14 23:04:03.977 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-14 23:04:04.010 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 23:04:04.268 +05:30 [INF] Register request started for Email: user@example.com
+2026-01-14 23:04:04.282 +05:30 [INF] Register process started for Email: user@example.com
+2026-01-14 23:04:05.840 +05:30 [INF] Executed DbCommand (132ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 23:04:05.904 +05:30 [WRN] Registration failed. Email already exists: user@example.com
+2026-01-14 23:08:03.335 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 23:08:03.765 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 23:08:03.768 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 23:08:03.862 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 23:08:03.864 +05:30 [INF] Hosting environment: Development
+2026-01-14 23:08:03.865 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 23:08:04.830 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 23:08:05.138 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 321.0882ms
+2026-01-14 23:08:05.194 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 23:08:05.195 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 23:08:05.215 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 20.4729ms
+2026-01-14 23:08:05.303 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 107.6709ms
+2026-01-14 23:08:05.352 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 23:08:05.376 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.1685ms
+2026-01-14 23:08:12.901 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 106
+2026-01-14 23:08:12.993 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-14 23:08:13.024 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 23:08:13.285 +05:30 [INF] Register request started for Email: user@example.com
+2026-01-14 23:08:13.297 +05:30 [INF] Register process started for Email: user@example.com
+2026-01-14 23:08:14.843 +05:30 [INF] Executed DbCommand (88ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 23:08:14.914 +05:30 [WRN] Registration failed. Email already exists: user@example.com
+2026-01-14 23:22:30.708 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-14 23:22:31.164 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-14 23:22:31.166 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-14 23:22:31.259 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-14 23:22:31.261 +05:30 [INF] Hosting environment: Development
+2026-01-14 23:22:31.263 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-14 23:22:32.047 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-14 23:22:32.338 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 301.3323ms
+2026-01-14 23:22:32.383 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-14 23:22:32.384 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-14 23:22:32.432 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 49.2373ms
+2026-01-14 23:22:32.521 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 137.2824ms
+2026-01-14 23:22:32.671 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-14 23:22:32.696 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.646ms
+2026-01-14 23:22:40.048 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Register - application/json 106
+2026-01-14 23:22:40.147 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Register (FunDooApp)'
+2026-01-14 23:22:40.182 +05:30 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.RegisterModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-14 23:22:40.454 +05:30 [INF] Register request started for Email: user@example.com
+2026-01-14 23:22:40.465 +05:30 [INF] Register process started for Email: user@example.com
+2026-01-14 23:22:41.990 +05:30 [INF] Executed DbCommand (103ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-14 23:22:42.058 +05:30 [WRN] Registration failed. Email already exists: user@example.com

@@ -4,6 +4,7 @@ using DataLogicLayer.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using ModelLayer.DTO;
 using ModelLayer.Entities;
+using ModelLayer.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -35,6 +36,9 @@ namespace BusinessLogicLayer.Services
 
             var savedNote = _notesRepository.AddNote(note);
 
+            if (savedNote == null)
+                throw new AppException("Failed to create note", 500);
+
             _cache.Remove($"NotesList_{userId}");
 
             return _mapper.Map<NoteResponse>(savedNote);
@@ -51,6 +55,10 @@ namespace BusinessLogicLayer.Services
             }
 
             var notes = _notesRepository.GetNotesByUserId(userId);
+
+            if (notes == null)
+                throw new AppException("No notes found", 404);
+
             var response = _mapper.Map<IEnumerable<NoteResponse>>(notes);
 
             _cache.SetString(cacheKey, JsonSerializer.Serialize(response));
@@ -60,33 +68,26 @@ namespace BusinessLogicLayer.Services
 
         public NoteResponse GetNoteById(Guid noteId, Guid userId)
         {
-            string cacheKey = $"Note_{noteId}";
-
-            var cachedData = _cache.GetString(cacheKey);
-            if (!string.IsNullOrEmpty(cachedData))
-            {
-                return JsonSerializer.Deserialize<NoteResponse>(cachedData);
-            }
-
             var note = _notesRepository.GetNoteById(noteId);
-            if (note == null || note.UserId != userId)
-                return null;
 
-            var response = _mapper.Map<NoteResponse>(note);
+            if (note == null)
+                throw new AppException("Note not found", 404);
 
-            _cache.SetString(cacheKey, JsonSerializer.Serialize(response));
 
-            return response;
+            return _mapper.Map<NoteResponse>(note);
         }
 
         public NoteResponse UpdateNote(UpdateNoteRequest dto, Guid userId)
         {
+
+
             var note = _notesRepository.GetNoteById(dto.Id);
-            if (note == null || note.UserId != userId)
-                return null;
+
+            if (note == null)
+                throw new AppException("Note not found", 404);
 
             _mapper.Map(dto, note);
-            note.UpdatedAt = DateTime.Now;
+            note.UpdatedAt = DateTime.UtcNow;
 
             var updatedNote = _notesRepository.UpdateNote(note);
 
@@ -99,12 +100,13 @@ namespace BusinessLogicLayer.Services
         public bool DeleteNote(Guid noteId, Guid userId)
         {
             var note = _notesRepository.GetNoteById(noteId);
-            if (note == null || note.UserId != userId)
-                return false;
+
+            if (note == null)
+                throw new AppException("Note not found", 404);
+
 
             _notesRepository.DeleteNote(note);
 
-       
             _cache.Remove($"NotesList_{userId}");
             _cache.Remove($"Note_{noteId}");
 

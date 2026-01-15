@@ -10,6 +10,7 @@ namespace BusinessLogicLayer.Services
 {
     public class CollaboratorService : ICollaboratorService
     {
+    
         private readonly ICollaboratorRepository _repository;
         private readonly IUserRepository _userRepository;
 

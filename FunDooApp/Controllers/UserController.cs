@@ -29,22 +29,11 @@ namespace FunDooApp.Controllers
         {
             logger.LogInformation("Register request started for Email: {Email}", model.Email);
 
-            try
-            {
-                var response = iuserservice.Register(model);
+            var response = iuserservice.Register(model);
 
-                logger.LogInformation("User registered successfully with Email: {Email}", model.Email);
+            logger.LogInformation("User registered successfully with Email: {Email}", model.Email);
 
-                return Ok(response);
-
-            }
-            catch(Exception ex)
-            {
-                logger.LogError(ex, "Registration failed ");
-                return BadRequest(ex.Message);
-           
-            }
-
+            return Ok(response);
         }
 
         [HttpPost]
@@ -53,19 +42,11 @@ namespace FunDooApp.Controllers
         {
             logger.LogInformation("Login attempt for Email: {Email}", model.Email);
 
-            try
-            {
-                var result = iuserservice.Login(model);
+            var result = iuserservice.Login(model);
 
-                logger.LogInformation("Login successful for Email: {Email}", model.Email);
+            logger.LogInformation("Login successful for Email: {Email}", model.Email);
 
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "Login failed for Email: {Email}", model.Email);
-                return BadRequest(ex.Message);
-            }
+            return Ok(result);
         }
 
         [HttpPost]

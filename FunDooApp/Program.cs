@@ -4,6 +4,7 @@ using BusinessLogicLayer.Services;
 using DataLogicLayer.Context;
 using DataLogicLayer.Interfaces;
 using DataLogicLayer.Repositories;
+using FunDooNotes.API.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -155,6 +156,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthentication();
 

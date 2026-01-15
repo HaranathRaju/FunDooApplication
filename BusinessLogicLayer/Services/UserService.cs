@@ -2,6 +2,7 @@
 using BusinessLogicLayer.Interfaces;
 using ModelLayer.Entities;
 using ModelLayer.DTO;
+using ModelLayer.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -23,22 +24,21 @@ namespace BusinessLogicLayer.Services
 
         public UserService(
             IUserRepository iuserrepository,
-            IEmailService emailservice, 
+            IEmailService emailservice,
             IConfiguration configuration,
             ILogger<UserService> logger,
             IRabbitMQProducer rabbitMQProducer
-            )
+        )
         {
             this.iuserrepository = iuserrepository;
-            this.emailservice = emailservice;   
+            this.emailservice = emailservice;
             this.configuration = configuration;
             this.logger = logger;
-            this.rabbitMQProducer= rabbitMQProducer;    
+            this.rabbitMQProducer = rabbitMQProducer;
         }
 
         private string GenerateToken(User user)
         {
-
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
@@ -50,7 +50,6 @@ namespace BusinessLogicLayer.Services
                 Encoding.UTF8.GetBytes(configuration["Jwt:Key"])
             );
 
-           
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
@@ -74,7 +73,7 @@ namespace BusinessLogicLayer.Services
             if (existingUser != null)
             {
                 logger.LogWarning("Registration failed. Email already exists: {Email}", model.Email);
-                throw new Exception("Email already exists");
+                throw new AppException("Email already exists", 400);
             }
 
             var user = new User
@@ -97,8 +96,6 @@ namespace BusinessLogicLayer.Services
 
             rabbitMQProducer.SendEmailMessage(email);
 
-
-
             logger.LogInformation("User registered successfully for Email: {Email}", model.Email);
 
             return new UserResponse
@@ -117,14 +114,14 @@ namespace BusinessLogicLayer.Services
             if (user == null)
             {
                 logger.LogWarning("Login failed. User not found for Email: {Email}", model.Email);
-                throw new Exception("Email or password incorrect");
+                throw new AppException("Email or password incorrect", 401); 
             }
 
             bool isValid = BCrypt.Net.BCrypt.Verify(model.Password, user.Password);
             if (!isValid)
             {
                 logger.LogWarning("Login failed. Invalid password for Email: {Email}", model.Email);
-                throw new Exception("Password is incorrect");
+                throw new AppException("Password is incorrect", 401); 
             }
 
             var token = GenerateToken(user);
@@ -144,12 +141,11 @@ namespace BusinessLogicLayer.Services
         {
             logger.LogInformation("ForgetPassword requested for Email: {Email}", email);
 
- 
             var user = iuserrepository.GetUserByEmail(email);
             if (user == null)
             {
                 logger.LogWarning("ForgetPassword failed. Email not found: {Email}", email);
-                throw new Exception("Email incorrect");
+                throw new AppException("Email not found", 404); 
             }
 
             var token = GenerateToken(user);
@@ -166,7 +162,6 @@ namespace BusinessLogicLayer.Services
             return token;
         }
 
-
         public bool ResetPassword(string email, string newpassword, string confirmpassword)
         {
             logger.LogInformation("ResetPassword process started for Email: {Email}", email);
@@ -174,7 +169,7 @@ namespace BusinessLogicLayer.Services
             if (newpassword != confirmpassword)
             {
                 logger.LogWarning("ResetPassword failed. Password mismatch for Email: {Email}", email);
-                throw new Exception("Password should match");
+                throw new AppException("Passwords do not match", 400); 
             }
 
             string hashPassword = BCrypt.Net.BCrypt.HashPassword(newpassword);
