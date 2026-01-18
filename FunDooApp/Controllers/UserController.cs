@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ModelLayer.Exceptions;
 using ModelLayer.DTO;
 using ModelLayer.Entities;
 using System;
@@ -21,6 +22,18 @@ namespace FunDooApp.Controllers
         {
             this.iuserservice = iuserservice;
             this.logger = logger;
+        }
+
+        private string GetUserEmail()
+        {
+            
+            var emailClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Email);
+
+            if (emailClaim ==  null) {
+                throw new AppException("UnAuthorized", 404);
+            }
+
+            return emailClaim.Value;
         }
 
         [HttpPost]
@@ -51,8 +64,12 @@ namespace FunDooApp.Controllers
 
         [HttpPost]
         [Route("ForgetPassword")]
-        public IActionResult ForgetPassword([FromQuery] string email)
+        [Authorize]
+        public IActionResult ForgetPassword()
+
         {
+
+            string email = GetUserEmail();
             logger.LogInformation("ForgetPassword request received for Email: {Email}", email);
 
             var token = iuserservice.ForgetPassword(email);
@@ -65,8 +82,11 @@ namespace FunDooApp.Controllers
         [HttpPost]
         [Route("ResetPassword")]
         [Authorize]
-        public IActionResult ResetPassword(string email, string newpassword, string confirmpassword)
+        public IActionResult ResetPassword([FromQuery]  string newpassword, string confirmpassword)
         {
+
+            string email = GetUserEmail();
+
             logger.LogInformation("ResetPassword request started for Email: {Email}", email);
 
             iuserservice.ResetPassword(email, newpassword, confirmpassword);

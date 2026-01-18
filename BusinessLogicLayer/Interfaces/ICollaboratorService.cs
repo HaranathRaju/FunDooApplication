@@ -14,6 +14,7 @@ namespace BusinessLogicLayer.Interfaces
         bool RemoveCollaboratorById(Guid collaboratorId);
 
         IEnumerable<Notes> GetSharedNotes(string email);
+
     }
 
 }

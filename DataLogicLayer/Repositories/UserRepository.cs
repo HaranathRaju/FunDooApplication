@@ -47,8 +47,10 @@ namespace DataLogicLayer.Repositories
             var user=context.Users.Where(l => l.Email==email).FirstOrDefault();
 
             if (user == null)
-                throw new Exception("email is incorrect");
-
+            {
+                return null;
+            }
+                
             user.Password = newpassword;
             context.SaveChanges();
 

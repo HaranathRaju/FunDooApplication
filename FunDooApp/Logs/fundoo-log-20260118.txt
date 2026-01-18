@@ -1,0 +1,181 @@
+2026-01-18 00:43:26.047 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-18 00:43:26.493 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-18 00:43:26.496 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-18 00:43:26.601 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-18 00:43:26.603 +05:30 [INF] Hosting environment: Development
+2026-01-18 00:43:26.605 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-18 00:43:30.436 +05:30 [ERR] BackgroundService failed
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 31
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-18 00:43:30.481 +05:30 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\haranath\Desktop\CSharp\FunDooApp\BusinessLogicLayer\Services\RabbitMQConsumer.cs:line 31
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-01-18 00:43:30.486 +05:30 [INF] Application is shutting down...
+2026-01-18 10:55:05.137 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-18 10:55:05.666 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-18 10:55:05.668 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-18 10:55:05.760 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-18 10:55:05.762 +05:30 [INF] Hosting environment: Development
+2026-01-18 10:55:05.764 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-18 10:55:08.509 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-18 10:55:08.945 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 448.1029ms
+2026-01-18 10:55:08.965 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-18 10:55:08.986 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 20.4875ms
+2026-01-18 10:55:08.988 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-18 10:55:09.136 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 147.574ms
+2026-01-18 10:55:09.215 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-18 10:55:09.262 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.5297ms
+2026-01-18 12:22:07.445 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-18 12:22:07.890 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-18 12:22:07.892 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-18 12:22:07.991 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-18 12:22:07.994 +05:30 [INF] Hosting environment: Development
+2026-01-18 12:22:07.995 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-18 12:22:08.730 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-18 12:22:08.980 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 263.6905ms
+2026-01-18 12:22:09.008 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-18 12:22:09.018 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-18 12:22:09.026 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 18.6352ms
+2026-01-18 12:22:09.096 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 77.1616ms
+2026-01-18 12:22:09.144 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-18 12:22:09.169 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.8764ms
+2026-01-18 12:42:10.927 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-18 12:42:11.546 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-18 12:42:11.548 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-18 12:42:11.652 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-18 12:42:11.654 +05:30 [INF] Hosting environment: Development
+2026-01-18 12:42:11.655 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-18 12:42:12.574 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-18 12:42:12.811 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 247.6518ms
+2026-01-18 12:42:12.837 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-18 12:42:12.857 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 20.1863ms
+2026-01-18 12:42:12.867 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-18 12:42:12.938 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.0971ms
+2026-01-18 12:42:13.002 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-18 12:42:13.032 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.7747ms
+2026-01-18 12:46:18.855 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-18 12:46:19.217 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-18 12:46:19.219 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-18 12:46:19.333 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-18 12:46:19.334 +05:30 [INF] Hosting environment: Development
+2026-01-18 12:46:19.335 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-18 12:46:19.874 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-18 12:46:20.083 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 220.6188ms
+2026-01-18 12:46:20.730 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-18 12:46:20.730 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-18 12:46:20.742 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 11.4116ms
+2026-01-18 12:46:20.783 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.7658ms
+2026-01-18 12:46:20.842 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-18 12:46:20.859 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.9579ms
+2026-01-18 12:47:45.896 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Login - application/json 57
+2026-01-18 12:47:45.982 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-18 12:47:46.011 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-18 12:47:46.258 +05:30 [INF] Login attempt for Email: user@example.com
+2026-01-18 12:47:46.386 +05:30 [INF] Login attempt started for Email: user@example.com
+2026-01-18 12:47:47.875 +05:30 [INF] Executed DbCommand (93ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-18 12:47:48.245 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-18 12:47:48.247 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-18 12:47:48.256 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.UserResponse'.
+2026-01-18 12:47:48.265 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Login (FunDooApp) in 2246.2958ms
+2026-01-18 12:47:48.266 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-18 12:47:48.278 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Login - 200 null application/json; charset=utf-8 2382.0592ms
+2026-01-18 12:47:51.624 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7139/api/User/Login - application/json 57
+2026-01-18 12:47:51.630 +05:30 [INF] Executing endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-18 12:47:51.632 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginModel) on controller FunDooApp.Controllers.UserController (FunDooApp).
+2026-01-18 12:47:51.635 +05:30 [INF] Login attempt for Email: user@example.com
+2026-01-18 12:47:51.637 +05:30 [INF] Login attempt started for Email: user@example.com
+2026-01-18 12:47:51.662 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[ChangedAt], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2026-01-18 12:47:51.922 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-18 12:47:51.924 +05:30 [INF] Login successful for Email: user@example.com
+2026-01-18 12:47:51.925 +05:30 [INF] Executing OkObjectResult, writing value of type 'ModelLayer.DTO.UserResponse'.
+2026-01-18 12:47:51.926 +05:30 [INF] Executed action FunDooApp.Controllers.UserController.Login (FunDooApp) in 292.847ms
+2026-01-18 12:47:51.928 +05:30 [INF] Executed endpoint 'FunDooApp.Controllers.UserController.Login (FunDooApp)'
+2026-01-18 12:47:51.930 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7139/api/User/Login - 200 null application/json; charset=utf-8 306.3547ms
+2026-01-18 12:50:48.436 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-18 12:50:48.834 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-18 12:50:48.836 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-18 12:50:48.910 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-18 12:50:48.912 +05:30 [INF] Hosting environment: Development
+2026-01-18 12:50:48.914 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-18 12:50:49.678 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-18 12:50:49.891 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 221.3684ms
+2026-01-18 12:50:50.040 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-18 12:50:50.040 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-18 12:50:50.050 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 9.3536ms
+2026-01-18 12:50:50.091 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.5982ms
+2026-01-18 12:50:50.162 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-18 12:50:50.180 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.6106ms
+2026-01-18 12:52:24.310 +05:30 [INF] User profile is available. Using 'C:\Users\haranath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-18 12:52:24.741 +05:30 [INF] Now listening on: https://localhost:7139
+2026-01-18 12:52:24.743 +05:30 [INF] Now listening on: http://localhost:5131
+2026-01-18 12:52:24.843 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-18 12:52:24.852 +05:30 [INF] Hosting environment: Development
+2026-01-18 12:52:24.853 +05:30 [INF] Content root path: C:\Users\haranath\Desktop\CSharp\FunDooApp\FunDooApp
+2026-01-18 12:52:27.884 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2026-01-18 12:52:28.205 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 344.8178ms
+2026-01-18 12:52:28.357 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_vs/browserLink - null null
+2026-01-18 12:52:28.356 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-18 12:52:28.405 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 49.63ms
+2026-01-18 12:52:28.495 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/_vs/browserLink - 200 null text/javascript; charset=UTF-8 138.6896ms
+2026-01-18 12:52:28.598 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2026-01-18 12:52:28.633 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.0406ms
